@@ -1,1 +1,1 @@
-docker stop django && docker rm django && docker ps -a
+docker-compose stop
