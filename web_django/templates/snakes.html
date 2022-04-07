@@ -1,0 +1,17 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-eqiv="X-UA-Compatible" content="ie=edge">
+   <title>Игра на JavaScript</title>
+   <link rel="stylesheet" type="text/css" href={% static 'style/style.css' %}>
+</head>
+<body>
+   <canvas id="game" width="608" height="608"></canvas>
+   <script src={% static 'js/jQuery.js' %}></script>
+   <script src={% static 'js/game.js' %}></script>
+</body>
+</html>
