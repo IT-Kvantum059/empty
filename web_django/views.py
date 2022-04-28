@@ -1,11 +1,16 @@
-import os
-import json
+import os, json
 from django.views.generic import TemplateView
 from django.http import HttpResponse, JsonResponse
 from django.template import loader
 
 def index(request):
-    template = loader.get_template('snakes.html')
+    template = loader.get_template('home.html')
+    context = {}
+    rendered_page = template.render(context, request)
+    return HttpResponse(rendered_page)
+
+def snake(request):
+    template = loader.get_template('snake.html')
     context = {}
     rendered_page = template.render(context, request)
     return HttpResponse(rendered_page)
