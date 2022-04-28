@@ -20,6 +20,7 @@ router.register(r'users', UserViewSet)
 
 urlpatterns = [
     path('', views.index),
+    path('admin/', admin.site.urls),
     path('apis', include(router.urls)),
     path('input', views.input_commands),
     path('get_cmd', views.output_commands),
