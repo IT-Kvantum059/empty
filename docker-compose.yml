@@ -3,6 +3,7 @@ version: '3'
 services:
   web:
     build: ./web
+    image: darkushads/empty:latest
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/web_django
