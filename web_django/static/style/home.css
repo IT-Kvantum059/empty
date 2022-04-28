@@ -1,0 +1,10 @@
+a{
+  text-decoration: none;
+  font-size: 100px;
+  font-family: sans-serif;
+  color: blue;
+  content: none;
+}
+button{
+  position: static;
+}
