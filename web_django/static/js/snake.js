@@ -2,10 +2,10 @@ const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
 const ground = new Image();
-ground.src = "static/img/ground.png";
+ground.src = "static/img/snake_ground.png";
 
 const foodImg = new Image();
-foodImg.src = "static/img/food.png";
+foodImg.src = "static/img/snake_food.png";
 
 let box = 32;
 
@@ -29,7 +29,7 @@ let food = {
 };
 
 function death()
-{	
+{
 	console.log("1", snake.length);
 	alert("Игра окончена!");
 	score = 0;
@@ -61,13 +61,13 @@ function eatTail(head, arr) {
 		if(head.x == arr[i].x && head.y == arr[i].y)
 		{
 			death();
-			
-			return;			
+
+			return;
 		}
 	}
 }
 
-function drawGame() {	
+function drawGame() {
 
 	ctx.drawImage(ground, 0, 0);
 
@@ -88,19 +88,19 @@ function drawGame() {
 	let snakeY = snake[0].y;
 
 	if(snakeX == food.x && snakeY == food.y) {
-		score++;		
+		score++;
 
 		for (var i = 0; i < snake.length; i++)
 		{
 			while (snake[i].x == food.x && snake[i].y == food.y)
 			{
-				food = 
+				food =
 				{
 					x: Math.floor((Math.random() * 17 + 1)) * box,
 					y: Math.floor((Math.random() * 15 + 3)) * box,
 				};
 			}
-		}				
+		}
 	} else
 		snake.pop();
 
@@ -112,7 +112,7 @@ function drawGame() {
 			console.log("2", snake.length);
 
 			return;
-		}		
+		}
 
 	if(cmd == "left") snakeX -= box;
 	if(cmd == "right") snakeX += box;
