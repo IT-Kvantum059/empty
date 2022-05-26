@@ -1,1 +1,1 @@
-docker-compose down
+cd web_site/ && docker-compose down
