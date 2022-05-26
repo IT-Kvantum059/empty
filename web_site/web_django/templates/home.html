@@ -6,12 +6,18 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-eqiv="X-UA-Compatible" content="ie=edge">
+
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
    <title>Домашняя</title>
    <link rel="stylesheet" href={% static 'style/home.css' %}>
 </head>
 <body>
-  <button type="button" name="button"><a href=/snake>snake</a></button>
   <button type="button" name="button"><a href=/apis>apis</a></button>
   <button type="button" name="button"><a href=/admin>admin</a></button>
+  <img src={% static 'img/snake_ground.png' %} alt="">
+
+  <script type="text/javascript">
+    setInterval(function() {window.location.reload()}, 10000);
+  </script>
 </body>
 </html>
