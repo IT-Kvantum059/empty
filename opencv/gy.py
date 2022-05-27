@@ -1,15 +1,16 @@
 import numpy as np
-import cv2
+import cv2, os
 import time
 from matplotlib import pyplot as plt
 import math 
 
 
-MIN_MATCH_COUNT = 7
+MIN_MATCH_COUNT = 20
     
 cap = cv2.VideoCapture(0)
 
 t = 0
+found, found0, val  = 0, 0, ''
 while True:
     t += 1
 
@@ -38,7 +39,6 @@ while True:
             if m.distance < 0.7*n.distance:
                 good.append(m)
 
-
         if len(good)>MIN_MATCH_COUNT:
             src_pts = np.float32([ kp1[m.queryIdx].pt for m in good ]).reshape(-1,1,2)    #---бессмыслено, только крашит программу
             dst_pts = np.float32([ kp2[m.trainIdx].pt for m in good ]).reshape(-1,1,2)
@@ -53,13 +53,15 @@ while True:
             pts = np.float32([ [0,0],[0,h-1],[w-1,h-1],[w-1,0] ]).reshape(-1,1,2)
             try:
                 dst = cv2.perspectiveTransform(pts,M)  #тут проблема
+                found = 1
             except cv2.error:
                 dst = []
+                found = 0
             train_img = cv2.polylines(train_img,[np.int32(dst)],True,255,3, cv2.LINE_AA)
             # print('совпадение:', len(good))
-
         else:
             print( "мало кт - {}/{}".format(len(good), MIN_MATCH_COUNT) )
+            found = 0
             matchesMask = None
         draw_params = dict(matchColor = (0,255,0), # draw matches in green color
                            singlePointColor = None,
@@ -69,6 +71,12 @@ while True:
 
         img3 = cv2.drawMatches(query_img,kp1,train_img,kp2,good,None,**draw_params)
 
+        if found != found0:
+            val = 'found' if found else 'none'
+            print(val, found, found0)
+            os.system("scp %s pi@192.168.10.127:/home/pi/cam_read/check_img.txt" % val)
+            # open('/mnt/rpi/check_img.txt', 'w').write('%s\n' % val)
+            found0 = found
 
         # фенальнае изабражение
         # final_img = cv2.drawMatches(query_img, queryKeypoints,
