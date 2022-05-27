@@ -6,17 +6,28 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-eqiv="X-UA-Compatible" content="ie=edge">
-
-  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-   <title>Домашняя</title>
+   <script src="https://kit.fontawesome.com/b472e817a3.js" crossorigin="anonymous"></script>
    <link rel="stylesheet" href={% static 'style/home.css' %}>
+   <title>Домашняя</title>
 </head>
 <body>
-  <button type="button" name="button"><a href=/apis>apis</a></button>
-  <button type="button" name="button"><a href=/admin>admin</a></button>
-  <img src={% static 'img/snake_ground.png' %} alt="">
+  <button class="links" type="button" name="button"><a class="text_links" href=/apis>apis</a></button>
+  <button class="links" type="button" name="button"><a class="text_links" href=/admin>admin</a></button>
 
-  <script type="text/javascript">
+  <ul>
+      <i class="fa-solid fa-circle-up"></i>
+      <br>
+      <i class="fa-solid fa-circle-left"></i>
+      <i class="fa-solid fa-square"></i>
+      <i class="fa-solid fa-circle-right"></i>
+      <br>
+      <i class="fa-solid fa-circle-down"></i>
+  </ul>
+
+
+  <img class="image_cam"src={% static 'img/snake_ground.png' %}>
+
+  <script>
     setInterval(function() {window.location.reload()}, 10000);
   </script>
 </body>

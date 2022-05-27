@@ -3,56 +3,113 @@ body{
   background-color: #313131;
 }
 
-a{
+.text_links{
   text-decoration: none;
   font-family: sans-serif;
   color: white;
+  font-size: 20px;
 }
 
-button{
+.image_cam{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ul{
+  list-style-type: none;
+  text-align: center;
+}
+
+.fa-solid{
+  color: black;
+  margin: 50px;
+  font-size: 6em;
+}
+
+.pad{
+  width: 50px;
+  height: 50px;
+  padding: 20px 20px;
+}
+
+.links{
       background-color: transparent;
       color: #ed5107;
-      padding: 16px 45px;
+      width: 100px;
+      height: 50px;
+      margin: 5px;
+      /* padding: 16px 45px; */
       border:1px solid #ed5107;
       transition: color 0.3s ease-out 0.3s;
       font-family: verdana;
       cursor: pointer;
       overflow: hidden;
 
-     /*for centering the button */
       position: relative;
-      display: block;
-      top: 50%; left: 50%;
+      display: inline;
+      top: 50px; left: 75px;
       transform: translate(-50%,-50%);
 }
 
-  button::before , button::after{
-    content: "";
-    position: absolute;
-    left: 0;
-    transform: skewY(-12deg);
-    transition: all 0.5s ease-out;
-    background-color: #ed5107;
-    width: 100%; height: 100%;
-    z-index: -1;
+.links::before , .links::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  transform: skewY(-12deg);
+  transition: all 0.5s ease-out;
+  background-color: #ed5107;
+  width: 100%; height: 100%;
+  z-index: -1;
+}
+
+.links::before{
+  top:-65px;
+}
+
+.links::after{
+  bottom:-65px;
+}
+
+.links:hover::before{
+  top:-20px;
+}
+
+.links:hover::after{
+  bottom:-20px;
+}
+
+.links:hover{
+  color:#fff;
+}
+
+@media (max-width: 800px) {
+  .links{
+    display: inline;
+    top: 20px; left: 50%;
+    width: 70px;
+    height: 30px;
   }
 
-  button::before{
-    top:-65px;
+  .text_links{
+    text-align: center;
+    font-size: 15px;
   }
 
-  button::after{
-    bottom:-65px;
+  ul{
+    top: 50%; left: 50%;
+    list-style-type: none;
+    text-align: center;
   }
-
-  button:hover::before{
-    top:-20px;
+  
+  .fa-solid{
+    top: 50%; left: 50%;
+    color: white;
+    margin: 20px;
+    font-size: 3em;
   }
-
-  button:hover::after{
-    bottom:-20px;
+  .image_cam{
+    width: 500px;
+    height: 500px;
   }
-
-  button:hover{
-    color:#fff;
-  }
+}
