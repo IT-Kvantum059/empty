@@ -101,7 +101,7 @@ ul{
     list-style-type: none;
     text-align: center;
   }
-  
+
   .fa-solid{
     top: 50%; left: 50%;
     color: white;
@@ -109,7 +109,8 @@ ul{
     font-size: 3em;
   }
   .image_cam{
-    width: 500px;
-    height: 500px;
+    display: block;
+    width: 300px;
+    height: auto;
   }
 }
